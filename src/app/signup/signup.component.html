@@ -1,0 +1,42 @@
+<mat-toolbar color="primary" class="wrapper">
+    <mat-toobar-row fxLayout="row">
+        <span class="title-center">Signup</span>
+    </mat-toobar-row>
+</mat-toolbar>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="signupForm">
+        <div fxFlex fxLayout="column">
+            <mat-form-field apperance="fill" fxFlex>
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" required name>
+                <mat-error *ngIf="signupForm.controls['name'].hasError('required')">Please enter your name.</mat-error>
+                <mat-error *ngIf="signupForm.controls['name'].hasError('pattern')">This field is invalid.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field apperance="fill" fxFlex>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" required email>
+                <mat-error *ngIf="signupForm.controls['email'].hasError('required')">Please enter your email.</mat-error>
+                <mat-error *ngIf="signupForm.controls['email'].hasError('pattern')">This field is invalid.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field apperance="fill" fxFlex>
+                <mat-label>Contact Number</mat-label>
+                <input matInput formControlName="contactNumber" required contactNumber>
+                <mat-error *ngIf="signupForm.controls['contactNumber'].hasError('required')">Please enter your contact number.</mat-error>
+                <mat-error *ngIf="signupForm.controls['contactNumber'].hasError('pattern')">This field is invalid.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field apperance="fill" fxFlex>
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password" required password>
+                <mat-error *ngIf="signupForm.controls['password'].hasError('required')">Please enter your password.</mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" type="submit" (click)="handelSubmit()" [disabled]="!(signupForm.valid && signupForm.dirty)">Signup</button>
+    <button mat-raised-button color="primary" mat-dialog-close>Close</button>
+</mat-dialog-actions>

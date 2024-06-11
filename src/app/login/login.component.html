@@ -1,0 +1,29 @@
+<mat-toolbar color="primary" class="wrapper">
+    <mat-toolbar-row fxLayout="row">
+        <span class="title-center">Login</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-dialog-content class="met-typography">
+    <form [formGroup]="loginForm">
+        <div fxFlex fxLayout="column">
+            <mat-form-field apperance="fill" fxFlex>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" required email>
+                <mat-error *ngIf="loginForm.controls['email'].hasError('required')">Please enter your email.</mat-error>
+                <mat-error *ngIf="loginForm.controls['email'].hasError('pattern')">This field is invalid.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field apperance="fill" fxFlex>
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password" required password>
+                <mat-error *ngIf="loginForm.controls['password'].hasError('required')">Please enter your password.</mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" type="submit" (click)="handelSubmit()" [disabled]="!(loginForm.valid && loginForm.dirty)">Signup</button>
+    <button mat-raised-button color="primary" mat-dialog-close>Close</button>
+</mat-dialog-actions>
