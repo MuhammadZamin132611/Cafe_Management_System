@@ -1,0 +1,58 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row fxLayout="row">
+        <span class="title-center">{{dialogData.action}} Product</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="productForm">
+        <div fxFlex fxLayout="column">
+            <div fxLayout="row wrapper">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" name required>
+                    <mat-error *ngIf="productForm.controls['name'].hasError('required')">Please enter product
+                        name.</mat-error>
+                    <mat-error *ngIf="productForm.controls['name'].hasError('pattern')">This field is
+                        invalid.</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrapper">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Price</mat-label>
+                    <input matInput formControlName="price" price required>
+                    <mat-error *ngIf="productForm.controls['price'].hasError('required')">Please enter product
+                        price.</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Category</mat-label>
+                    <mat-select formControlName="categoryId" categoryId required>
+                        <mat-option *ngFor="let category of categorys"
+                            [value]="category.id">{{category.name}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="productForm.controls['categoryId'].hasError('required')">Please select product
+                        category.</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrapper">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Description</mat-label>
+                    <input matInput formControlName="description" description required>
+                    <mat-error *ngIf="productForm.controls['description'].hasError('required')">Please enter product
+                        description.</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" type="submit" (click)="handelSubmit()"
+        [disabled]="!(productForm.valid && productForm.dirty)">{{action}}</button>
+    <button mat-raised-button mat-dialog-close>Close</button>
+
+</mat-dialog-actions>

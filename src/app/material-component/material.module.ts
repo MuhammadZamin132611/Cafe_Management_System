@@ -12,6 +12,9 @@ import { SharedModule } from '../shared/shared.module';
 import { ChangePasswordComponent } from './dialog/change-password/change-password.component';
 import { ManageCategoryComponent } from './manage-category/manage-category.component';
 import { CategoryComponent } from './dialog/category/category.component';
+import { ManagementProductComponent } from './management-product/management-product.component';
+import { ProductComponent } from './dialog/product/product.component';
+import { ManageOrderComponent } from './manage-order/manage-order.component';
 
 
 @NgModule({
@@ -20,7 +23,10 @@ import { CategoryComponent } from './dialog/category/category.component';
     ConfirmationComponent,
     ChangePasswordComponent,
     ManageCategoryComponent,
-    CategoryComponent
+    CategoryComponent,
+    ManagementProductComponent,
+    ProductComponent,
+    ManageOrderComponent
   ],
   imports: [
     CommonModule,

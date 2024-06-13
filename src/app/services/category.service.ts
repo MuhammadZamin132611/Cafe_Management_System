@@ -23,7 +23,19 @@ export class CategoryService {
     return this.http.patch(this.url + "/category/update", data, { headers });
   }
 
-  getCategory=()=>{
-    return this.http.get(this.url+"/category/get");
+  getCategory = () => {
+    return this.http.get(this.url + "/category/get");
+  }
+
+  delete = (id: any) => {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    // Construct the URL with the id
+    const url = `${this.url}/category/delete/${id}`;
+
+    // Pass the headers in the options parameter
+    return this.http.delete(url, { headers });
   }
 }
