@@ -5,6 +5,7 @@ import { RouteGuardService } from '../services/route-guard.service';
 import { ManagementProductComponent } from './management-product/management-product.component';
 import { ManageOrderComponent } from './manage-order/manage-order.component';
 import { ViewBillComponent } from './view-bill/view-bill.component';
+import { ManageUserComponent } from './manage-user/manage-user.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,14 @@ const routes: Routes = [
     canActivate: [RouteGuardService],
     data: {
       expectedRole: ['admin', 'user']
+    }
+  },
+  {
+    path: 'user',
+    component: ManageUserComponent,
+    canActivate: [RouteGuardService],
+    data: {
+      expectedRole: ['admin']
     }
   },
 ];
