@@ -21,6 +21,18 @@ export class BillService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.http.post(this.url + "/bill/getPdf", data, { responseType:'blob' })
+    return this.http.post(this.url + "/bill/getPdf", data, { responseType: 'blob' })
+  }
+
+  getBills = () => {
+    return this.http.get(this.url + "/bill/getBills/");
+  }
+
+  delete = (id: any) => {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    const url = `${this.url}"/bill/delete/"${id},`
+    return this.http.delete(url, { headers })
   }
 }

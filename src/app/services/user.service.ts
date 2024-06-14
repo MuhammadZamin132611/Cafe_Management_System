@@ -45,11 +45,19 @@ export class UserService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-
     return this.http.post(this.url + "/user/changePassword", data, { headers })
   }
 
+  getUsers = () => {
+    return this.http.get(this.url + "/user/get");
+  }
 
+  update = (data: any) => {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.patch(this.url + "/user/update", data, { headers });
+  }
 
 
 }

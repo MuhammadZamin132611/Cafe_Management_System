@@ -1,6 +1,6 @@
 export class GlobalConstants {
     // Message
-    public static genericError: string = "Something went worng. Please try again later";
+    public static genericError: string = "Something went worng. Please try again later.";
 
     public static unauthorized: string = "You are not authorized person to access this page."
 
