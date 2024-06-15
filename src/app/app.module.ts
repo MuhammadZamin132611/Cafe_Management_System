@@ -61,3 +61,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+// step 4 => ng build --base-href "https://github.com/MuhammadZamin132611/Cafe_Management_System/"
+// step 5 => npx angular-cli-ghpages --dir=dist/fronted-cafenodejs
